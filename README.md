@@ -10,6 +10,7 @@ yarn dev
 
 ## Issues
 ### MSW
+Currently version 0.38 works fine.
 Try to update msw to version 0.42 `yarn add msw@latest` I receive this error
 ```
 error - Invariant Violation: Failed to respond to "GET http://localhost:3000/backend-api/xxxx" request: the "request" event has already been responded to.
