@@ -34,8 +34,8 @@ const requestFx = createEffect(async ({ url, query, data, config, method }) => {
 
     return result.data;
   } catch (e) {
-    // throw e?.response?.data;
-    console.error('error in request fx', e?.response?.data);
+    throw e?.response?.data;
+    // console.error('error in request fx', e?.response?.data);
   }
 });
 
@@ -63,7 +63,7 @@ const throwRequestErrorFx = createEffect(async ({ params, error }) => {
     `isBroswer: ${typeof window !== 'undefined'}`,
   ];
 
-  // console.error(info.filter(Boolean).join('\n'));
+  console.error(info.filter(Boolean).join('\n')); 
 });
 
 // Trigger error only in development and ignore aborted requests
@@ -97,7 +97,7 @@ const patchFx = createEffect(async ({ url, data }) =>
 const deleteFx = createEffect(async ({ url }) =>
   attachedRequestFx({ url, method: 'DELETE' }),
 );
-
+ 
 export const API = {
   setHeader,
   requestFx,

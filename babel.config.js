@@ -3,20 +3,16 @@ module.exports = (api) => {
 
   const presets = ['next/babel'];
   const plugins = [
-    // [
-    //   // 'import',
-    //   // {
-    //   //   libraryName: 'react-use',
-    //   //   libraryDirectory: 'lib',
-    //   //   camel2DashComponentName: false,
-    //   // },
-    //   // 'effector-logger/babel-plugin',
-    // ],
   ];
 
   if (process.env.STORYBOOK !== 'true') {
     plugins.push([
       'effector/babel-plugin',
+      {
+        importName: ['effector'],
+        addLoc: true,
+        reactSsr: true,
+      }
     ]);
   }
 
